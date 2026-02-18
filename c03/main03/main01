@@ -1,0 +1,9 @@
+#include <stdio.h>
+int	main(void)
+{
+	char str1[] = "AbA";
+	char str2[] = "Aba";
+	printf("\ns1 = %s", str1);
+	printf("\n%d",ft_strncmp(str1, str2,333));
+	return (0);
+}

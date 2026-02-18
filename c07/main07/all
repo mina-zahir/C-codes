@@ -1,0 +1,129 @@
+#include <stdio.h>
+
+int	main()
+{
+	char *dup;
+	//char a[] = "Best";
+	dup = ft_strdup("bet");
+	printf("%s",dup);
+	//free (dup);
+//	printf("%s", "yyyy");
+}
+#include <stdio.h>
+
+int	main()
+{
+	int	*num_array;
+	int min = 2147483640;
+	int max = 2147483647;
+	num_array = ft_range(min,max);
+	int i;
+   	for (i = 0; i < (max - min) ; i++)
+        	printf("%d ", num_array[i]);
+	free (num_array);
+}
+#include <stdio.h>
+
+int	main()
+{
+	int	*num_array;
+	int min = 4;
+	int max = 9;
+	int size;
+	
+	size = ft_ultimate_range(&num_array,min,max);
+	int i;
+
+	if (size == -1)
+	{
+		printf("Error: Malloc failed.\n");
+		return (1);
+	}
+	if (size == 0)
+	{
+		printf("Min was >= Max, or array is empty.\n");
+	}
+	else
+	{
+		printf("Array size: %d\n", size);
+		for (i = 0; i < size; i++)
+		{
+			printf("Element %d: %d\n", i, num_array[i]);
+		}
+		free(num_array);
+	}
+	return (0);
+}
+#include <stdio.h>
+
+int main(void)
+{
+    char *strs[] = {"Hello", "world", "this", "is", "42"};
+    char *separator = " - ";
+    char *result;
+
+    printf("Test 1 : ");
+    result = ft_strjoin(5, strs, separator);
+    if (result)
+    {
+        printf("%s\n", result);
+        free(result);
+    }
+
+    printf("Test 2 size =1 : ");
+    result = ft_strjoin(1, strs, separator);
+    if (result)
+    {
+        printf("%s\n", result);
+        free(result);
+    }
+
+    printf("Test 3 (Size 0): ");
+    result = ft_strjoin(0, strs, separator);
+    if (result)
+    {
+        printf("Empty string pointer: %p | Content: '%s'\n", result, result);
+        free(result);
+    }
+	 return (0);
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+
+char *ft_convert_base(char *nbr, char *base_from, char *base_to);
+    
+	char nbr[] = "2a";
+	char base_from[] = "0123456789abcdef";
+	char base_to[] = "01";
+	char *result = ft_convert_base(nbr, base_from, base_to);
+	
+	printf("nbr %s base_from %s base_to %s answer: %s", nbr, base_from, base_to, result);
+	free(result);
+	return (0);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*str = "Hello, Goodbye! M.Z";
+	char	*charset = ", !."; 
+	char	**result;
+	int		i;
+
+	result = ft_split(str, charset);
+	if (!result)
+		return (1);
+	i = 0;
+	while (result[i] != NULL)
+	{
+		printf("Word [%d]: %s\n", i, result[i]);
+		free(result[i]); 
+		i++;
+	}
+	free(result); 
+	return (0);
+}
